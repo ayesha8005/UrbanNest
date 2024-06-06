@@ -13,6 +13,9 @@
         android:theme="@style/Theme.UrbanNest"
         tools:targetApi="31">
         <activity
+            android:name=".InfoPop"
+            android:exported="false" />
+        <activity
             android:name=".ItemDetailActivity"
             android:exported="false" />
         <activity

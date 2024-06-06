@@ -22,12 +22,6 @@ class HomePage : AppCompatActivity() {
 
 
 
-
-
-
-
-
-
         val welcomeTextView: TextView = findViewById(R.id.welcomeText)
 
 

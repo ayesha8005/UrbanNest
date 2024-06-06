@@ -29,16 +29,16 @@ class HomeFragment : Fragment() {
 
         // Dummy data
         furnitureList = listOf(
-            FurnitureItem("Sofa", "Comfortable sofa", 499.99, R.drawable.chairyal),
-            FurnitureItem("Chair", "Stylish chair", 199.99, R.drawable.bluesofa),
-            FurnitureItem("Chair", "Stylish chair", 199.99, R.drawable.bluetable),
-            //FurnitureItem("Chair", "Stylish chair", 199.99, R.drawable.),
-            FurnitureItem("Chair", "Stylish chair", 199.99, R.drawable.rug),
-            //FurnitureItem("Chair", "Stylish chair", 199.99, R.drawable.yellowlamp),
-            //FurnitureItem("Chair", "Stylish chair", 199.99, R.drawable.tablestool),
-            FurnitureItem("Chair", "Stylish chair", 199.99, R.drawable.centertable)
+            FurnitureItem("Elegant Sofa", "Comfortable and luxurious sofa for your living room", 499.99, R.drawable.chairyal),
+            FurnitureItem("Modern Blue Sofa", "Stylish and chic blue sofa to add a pop of color", 199.99, R.drawable.bluesofa),
+            FurnitureItem("Sleek Dining Table", "Modern dining table perfect for family dinners", 299.99, R.drawable.bluetable),
+            FurnitureItem("Golden Lamp", "Elegant golden lamp to brighten up your room", 99.99, R.drawable.goldenlamp),
+            FurnitureItem("Cozy Rug", "Plush and soft rug to enhance your living space", 149.99, R.drawable.rug),
+            FurnitureItem("Wooden Coffee Table", "Rustic wooden coffee table for a warm touch", 249.99, R.drawable.woodentable),
+            FurnitureItem("Comfortable Bed", "Spacious and comfortable bed for a restful sleep", 399.99, R.drawable.bed),
+            FurnitureItem("Center Table", "Stylish center table to complete your living room", 249.99, R.drawable.centertable)
 
-            // Add more items...
+
         )
 
         adapter = FurnitureAdapter(furnitureList, object : FurnitureAdapter.OnItemClickListener {

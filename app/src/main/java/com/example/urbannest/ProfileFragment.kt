@@ -1,32 +1,25 @@
 package com.example.urbannest
 
 import android.os.Bundle
+import android.view.Gravity
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.PopupWindow
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.getSystemService
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ProfileFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+
 class ProfileFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
+    private lateinit var showPopupInstruct : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+
     }
 
     override fun onCreateView(
@@ -37,23 +30,37 @@ class ProfileFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_profile, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ProfileFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ProfileFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // Initialize the button
+        showPopupInstruct = view.findViewById(R.id.show_popup_button)
+
+        // Set the click listener to show the popup
+        showPopupInstruct.setOnClickListener {
+            showPopup()
+        }
+    }
+
+    // Function to display an information popup window
+    private fun showPopup() {
+        val inflater = requireActivity().getSystemService(AppCompatActivity.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        val popupView = inflater.inflate(R.layout.activity_info_pop, null)
+
+        // Defining the dimensions of the popup window
+        val width = 850
+        val height = 1000
+
+        // The popup window with specified dimensions
+        val instructWindow = PopupWindow(popupView, width, height, true)
+
+        // Displaying the popup window at the bottom of the screen with specific offsets
+        instructWindow.showAtLocation(popupView, Gravity.BOTTOM, 20, 800)
+
+        // Setting up a click listener for the close button to dismiss the popup window
+        val closeButton = popupView.findViewById<Button>(R.id.closeButton)
+        closeButton.setOnClickListener {
+            instructWindow.dismiss()
+        }
     }
 }
